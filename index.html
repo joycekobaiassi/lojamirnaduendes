@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mirna Duendes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topo">
+  <h1>MIRNA DUENDES</h1>
+  <p>Criaturas mágicas feitas para atrair sorte, amor e proteção ✨</p>
+</header>
+
+<!-- VIDEO -->
+<section class="video-container hero">
+  <video autoplay loop controls playsinline>
+    <source src="img/videomirna.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo.
+  </video>
+</section>
+
+
+<section class="portal">
+  <p>Alguns encontros não se explicam.<br>Apenas se sentem ✨</p>
+</section>
+
+
+<!-- ACCORDION -->
+<section class="accordion">
+
+  <button class="acc-btn">🧝‍♂️ Duendes da Semana</button>
+  <div class="acc-content">
+
+    <div class="duende">
+      <img src="img/duendedasorte.jpg" alt="Duende da Sorte">
+      <h3>Duende da Sorte</h3>
+      <p>R$ 390,00</p>
+      <a class="whats"
+        href="https://wa.me/5548992126571?text=Olá%20✨%20Quero%20comprar%20o%20Duende%20da%20Sorte%20que%20vi%20no%20site%20Mirna%20Duendes."
+        target="_blank">Comprar pelo WhatsApp</a>
+    </div>
+
+    <div class="duende">
+      <img src="img/duendedoamor.jpg" alt="Duende do Amor">
+      <h3>Duende do Amor</h3>
+      <p>R$ 340,00</p>
+      <a class="whats"
+        href="https://wa.me/5548992126571?text=Olá%20✨%20Quero%20comprar%20o%20Duende%20do%20Amor%20que%20vi%20no%20site%20Mirna%20Duendes."
+        target="_blank">Comprar pelo WhatsApp</a>
+    </div>
+
+    <div class="duende">
+      <img src="img/duendeleprechaum.jpg" alt="Duende Leprechaum">
+      <h3>Duende da Cura</h3>
+      <p>R$ 380,00</p>
+      <a class="whats"
+        href="https://wa.me/5548992126571?text=Olá%20✨%20Quero%20comprar%20o%20Duende%20Leprechaum%20que%20vi%20no%20site%20Mirna%20Duendes."
+        target="_blank">Comprar pelo WhatsApp</a>
+    </div>
+
+  </div>
+
+<button class="acc-btn" id="fraseBtn">
+  ✨ Clique aqui e receba uma mensagem de um elemental
+</button>
+
+<div class="acc-content" id="fraseTexto"></div>
+
+
+<button class="acc-btn acc-link shopee-btn" data-link="https://shopee.com.br/duendesmirna">
+  <span class="titulo">🛍️ Catálogo completo na Shopee</span>
+  <span class="subtitulo">Veja os modelos e finalize a compra pelo WhatsApp</span>
+</button>
+<button class="acc-btn acc-link btn-portal" data-link="https://mirnabenzedeira.vercel.app/">
+  🔮 Mirna Benzedeira
+  <small>Terapias energéticas & benzimentos</small>
+</button>
+
+
+  <button class="acc-btn">📲 Nossas Redes</button>
+<div class="acc-content redes">
+  <a href="https://instagram.com/mirnaduendes" target="_blank" class="rede">
+    <img src="img/logoinsta.jpg" alt="Instagram Mirna Duendes">
+    <span>@mirnaduendes</span>
+  </a>
+
+  <a href="https://www.tiktok.com/@mirnaduendes" target="_blank" class="rede">
+    <img src="img/logotiktok.jpg" alt="TikTok Mirna Duendes">
+    <span>@mirnaduendes</span>
+  </a>
+</div>
+
+
+</section>
+
+<footer class="ritual-footer">
+  <p class="ritual-frase">
+    Eles que te escolhem. Sinta com o coração ✨
+  </p>
+
+  <p class="assinatura">
+    desenvolvido com intenção por
+    <a href="https://jkdesenvolvedora.vercel.app/" target="_blank">JK Desenvolvedora</a>
+    <span class="separador">·</span>
+    <a href="https://instagram.com/jkdesenvolvedora" target="_blank">@jkdesenvolvedora</a>
+  </p>
+</footer>
+
+
+
+
+<script>
+  const buttons = document.querySelectorAll('.acc-btn');
+
+  const frases = [
+    "A magia começa quando você acredita no invisível ✨",
+    "O que é feito com intenção nunca se perde 🪄",
+    "Nem toda resposta vem rápido, mas toda resposta vem 🌙",
+    "Confie no tempo das coisas, ele conhece o caminho 🔮",
+    "A sorte visita quem prepara o coração 💫"
+  ];
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+
+      if (btn.classList.contains('acc-link')) {
+        window.open(btn.dataset.link, '_blank');
+        return;
+      }
+
+      const content = btn.nextElementSibling;
+
+      document.querySelectorAll('.acc-content').forEach(c => {
+        if (c !== content) c.style.display = 'none';
+      });
+
+      if (btn.id === 'fraseBtn') {
+        const frase = frases[Math.floor(Math.random() * frases.length)];
+        document.getElementById('fraseTexto').textContent = frase;
+      }
+
+      if (content) {
+        content.style.display =
+          content.style.display === 'block' ? 'none' : 'block';
+      }
+    });
+  });
+</script>
+
+
+</body>
+</html>
